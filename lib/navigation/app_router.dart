@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_returning_null_for_void
+
 import 'package:flutter/material.dart';
 import '../models/models.dart';
 import '../screens/screens.dart';
@@ -43,7 +45,10 @@ class AppRouter extends RouterDelegate with ChangeNotifier, PopNavigatorRouterDe
       onPopPage: _handlePopPage,
       // 9
       pages: [
+        // ignore: todo
         // TODO: Add SplashScreen
+        if (!appStateManager.isInitialized) SplashScreen.page(),
+
         // TODO: Add LoginScreen
         // TODO: Add OnboardingScreen
         // TODO: Add Home
