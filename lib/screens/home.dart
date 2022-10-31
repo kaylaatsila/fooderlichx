@@ -97,7 +97,9 @@ class _HomeState extends State<Home> {
           ),
         ),
         onTap: () {
+          // ignore: todo
           // TODO: home -> profile
+          Provider.of<ProfileManager>(context, listen: false).tapOnProfile(true);
         },
       ),
     );
