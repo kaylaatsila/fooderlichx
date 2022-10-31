@@ -51,7 +51,9 @@ class GroceryListScreen extends StatelessWidget {
                 },
               ),
               onTap: () {
+                // ignore: todo
                 // TODO: Tap on grocery item
+                manager.groceryItemTapped(index);
               },
             ),
           );

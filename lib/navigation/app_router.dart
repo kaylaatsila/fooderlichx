@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_returning_null_for_void
+// ignore_for_file: avoid_returning_null_for_void, unnecessary_null_comparison
 
 import 'package:flutter/material.dart';
 import '../models/models.dart';
@@ -57,19 +57,32 @@ class AppRouter extends RouterDelegate with ChangeNotifier, PopNavigatorRouterDe
         // ignore: todo
         // TODO: Add Home
         if (appStateManager.isOnboardingComplete) Home.page(appStateManager.getSelectedTab),
+
         // ignore: todo
         // TODO: Create new item
         // 1
         if (groceryManager.isCreatingNewItem)
+          GroceryItemScreen.page(onCreate: (item) {
+            groceryManager.addItem(item);
+          }, onUpdate: (item, index) {
+            // No update
+          }),
+
+        // ignore: todo
+        // TODO: Select GroceryItemScreen
+        // 1
+        if (groceryManager.selectedIndex != -1)
           // 2
           GroceryItemScreen.page(
-            onCreate: (item) {
-              // 3
-              groceryManager.addItem(item);
-            },
-          ),
-
-        // TODO: Select GroceryItemScreen
+              item: groceryManager.selectedGroceryItem,
+              index: groceryManager.selectedIndex,
+              onUpdate: (item, index) {
+                // 3
+                groceryManager.updateItem(item, index);
+              },
+              onCreate: (_) {
+                // No create
+              }),
         // TODO: Add Profile Screen
         // TODO: Add WebView Screen
       ],
