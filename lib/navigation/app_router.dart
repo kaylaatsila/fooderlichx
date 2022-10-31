@@ -51,7 +51,9 @@ class AppRouter extends RouterDelegate with ChangeNotifier, PopNavigatorRouterDe
         // ignore: todo
         // TODO: Add LoginScreen
         if (appStateManager.isInitialized && !appStateManager.isLoggedIn) LoginScreen.page(),
+        // ignore: todo
         // TODO: Add OnboardingScreen
+        if (appStateManager.isLoggedIn && !appStateManager.isOnboardingComplete) OnboardingScreen.page(),
         // TODO: Add Home
         // TODO: Create new item
         // TODO: Select GroceryItemScreen

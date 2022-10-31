@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '/models/models.dart';
@@ -65,7 +67,9 @@ class LoginScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         onPressed: () async {
+          // ignore: todo
           // TODO: Login -> Navigate to home
+          Provider.of<AppStateManager>(context, listen: false).login('mockUsername', 'mockPassword');
         },
       ),
     );
