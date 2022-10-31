@@ -57,7 +57,18 @@ class AppRouter extends RouterDelegate with ChangeNotifier, PopNavigatorRouterDe
         // ignore: todo
         // TODO: Add Home
         if (appStateManager.isOnboardingComplete) Home.page(appStateManager.getSelectedTab),
+        // ignore: todo
         // TODO: Create new item
+        // 1
+        if (groceryManager.isCreatingNewItem)
+          // 2
+          GroceryItemScreen.page(
+            onCreate: (item) {
+              // 3
+              groceryManager.addItem(item);
+            },
+          ),
+
         // TODO: Select GroceryItemScreen
         // TODO: Add Profile Screen
         // TODO: Add WebView Screen
