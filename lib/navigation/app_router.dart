@@ -86,7 +86,9 @@ class AppRouter extends RouterDelegate with ChangeNotifier, PopNavigatorRouterDe
         // ignore: todo
         // TODO: Add Profile Screen
         if (profileManager.didSelectUser) ProfileScreen.page(profileManager.getUser),
+        // ignore: todo
         // TODO: Add WebView Screen
+        if (profileManager.didTapOnRaywenderlich) WebViewScreen.page(),
       ],
     );
   }
@@ -119,7 +121,11 @@ class AppRouter extends RouterDelegate with ChangeNotifier, PopNavigatorRouterDe
     if (route.settings.name == FooderlichPages.profilePath) {
       profileManager.tapOnProfile(false);
     }
+    // ignore: todo
     // TODO: Handle state when user closes WebView screen
+    if (route.settings.name == FooderlichPages.raywenderlich) {
+      profileManager.tapOnRaywenderlich(false);
+    }
     // 6
     return true;
   }

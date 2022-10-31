@@ -63,13 +63,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ListTile(
           title: const Text('View raywenderlich.com'),
           onTap: () {
+            // ignore: todo
             // TODO: Open raywenderlich.com webview
+            Provider.of<ProfileManager>(context, listen: false).tapOnRaywenderlich(true);
           },
         ),
         ListTile(
           title: const Text('Log out'),
           onTap: () {
+            // ignore: todo
             // TODO: Logout user
+            // 1
+            Provider.of<ProfileManager>(context, listen: false).tapOnProfile(false);
+// 2
+            Provider.of<AppStateManager>(context, listen: false).logout();
           },
         )
       ],
